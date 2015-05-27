@@ -11,6 +11,7 @@ aliasesPath = File.expand_path("./aliases")
 require_relative 'scripts/php7dev.rb'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	config.vm.box = "\\JOAO-PC\boxes\qtsweb.box"
 	config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 	if File.exists? aliasesPath then
 		config.vm.provision "file", source: aliasesPath, destination: "~/.bash_aliases"
